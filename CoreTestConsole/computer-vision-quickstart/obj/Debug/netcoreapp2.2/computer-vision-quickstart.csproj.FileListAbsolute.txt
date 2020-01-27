@@ -1,0 +1,11 @@
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/bin/Debug/netcoreapp2.2/computer-vision-quickstart.deps.json
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/bin/Debug/netcoreapp2.2/computer-vision-quickstart.runtimeconfig.json
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/bin/Debug/netcoreapp2.2/computer-vision-quickstart.runtimeconfig.dev.json
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/bin/Debug/netcoreapp2.2/computer-vision-quickstart.dll
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/bin/Debug/netcoreapp2.2/computer-vision-quickstart.pdb
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.csprojAssemblyReference.cache
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.csproj.CoreCompileInputs.cache
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.AssemblyInfoInputs.cache
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.AssemblyInfo.cs
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.dll
+/home/rc-devm/repos/SCTradeTracker/SCTradeTracker/CoreTestConsole/computer-vision-quickstart/obj/Debug/netcoreapp2.2/computer-vision-quickstart.pdb

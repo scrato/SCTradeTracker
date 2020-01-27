@@ -14,6 +14,7 @@ namespace SCTradeTracker
         private Hotkey hotkey;
 
         static HotkeyArgs PrintScreenHotkey { get; } = new HotkeyArgs(ModifierKeys.Control | ModifierKeys.Alt, System.Windows.Forms.Keys.Print);
+        static Screenshot Screenshot {get;} = new Screenshot();
 
         public override void Initialize()
         {
@@ -27,7 +28,7 @@ namespace SCTradeTracker
         {
             if(e.HotkeyArgs == PrintScreenHotkey)
             {
-
+                object p = SaveScreenToFile();
             }
         }
 
@@ -39,6 +40,12 @@ namespace SCTradeTracker
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
 
+        }
+
+        private void SaveScreenToFile()
+        {
+            var img = Screenshot.ActiveWindow();
+            
         }
     }
 }
