@@ -13,19 +13,22 @@ namespace SCTradeTracker
     {
         private Hotkey hotkey;
 
-        const ModifierKeys printModifier = ModifierKeys.Control | ModifierKeys.Alt;
+        static HotkeyArgs PrintScreenHotkey { get; } = new HotkeyArgs(ModifierKeys.Control | ModifierKeys.Alt, System.Windows.Forms.Keys.Print);
 
         public override void Initialize()
         {
             base.Initialize();
             hotkey = new Hotkey();
-            hotkey.RegisterHotKey(, System.Windows.Forms.Keys.Print);
+            hotkey.RegisterHotKey(PrintScreenHotkey);
             hotkey.KeyPressed += Hotkey_KeyPressed;
         }
 
         private void Hotkey_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            if(e.)
+            if(e.HotkeyArgs == PrintScreenHotkey)
+            {
+
+            }
         }
 
         protected override Window CreateShell()

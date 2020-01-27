@@ -25,7 +25,7 @@ namespace SCTradeTracker.API
         /// </summary>
         private class Window : NativeWindow, IDisposable
         {
-            private static int WM_HOTKEY = 0x0312;
+            private const int WM_HOTKEY = 0x0312;
 
             public Window()
             {
@@ -49,8 +49,7 @@ namespace SCTradeTracker.API
                     ModifierKeys modifier = (ModifierKeys)((int)m.LParam & 0xFFFF);
 
                     // invoke the event to notify the parent.
-                    if (KeyPressed != null)
-                        KeyPressed(this, new KeyPressedEventArgs(modifier, key));
+                    KeyPressed?.Invoke(this, new KeyPressedEventArgs(modifier, key));
                 }
             }
 
@@ -66,7 +65,7 @@ namespace SCTradeTracker.API
             #endregion
         }
 
-        private Window _window = new Window();
+        private readonly Window _window = new Window();
         private int _currentId;
 
         public Hotkey()
@@ -74,8 +73,7 @@ namespace SCTradeTracker.API
             // register the event of the inner native window.
             _window.KeyPressed += delegate (object sender, KeyPressedEventArgs args)
             {
-                if (KeyPressed != null)
-                    KeyPressed(this, args);
+                KeyPressed?.Invoke(this, args);
             };
         }
 
@@ -87,7 +85,7 @@ namespace SCTradeTracker.API
         public void RegisterHotKey(HotkeyArgs args)
         {
             // increment the counter.
-            _currentId = _currentId + 1;
+            _currentId += 1;
 
             // register the hot key.
             if (!RegisterHotKey(_window.Handle, _currentId, (uint)args.Modifier, (uint)args.Key))
@@ -121,20 +119,23 @@ namespace SCTradeTracker.API
     /// </summary>
     public class KeyPressedEventArgs : EventArgs
     {
-        public HotkeyArgs Args { get; }
-
-        internal KeyPressedEventArgs(HotkeyArgs args)
+        internal KeyPressedEventArgs(ModifierKeys modifier, Keys key)
         {
-            Args = args;
+            Modifier = modifier;
+            Key = key;
         }
 
-        
+        public ModifierKeys Modifier { get; }
 
+        public Keys Key { get; }
+
+        public HotkeyArgs HotkeyArgs
+        {
+            get { return new HotkeyArgs(Modifier, Key); }
+        }
+            
     }
 
-    /// <summary>
-    ///  The class for combining Modifier and Key as one Combination
-    /// </summary>
     public class HotkeyArgs
     {
         public ModifierKeys Modifier { get; }
