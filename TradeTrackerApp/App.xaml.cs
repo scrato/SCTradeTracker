@@ -3,6 +3,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
 using SCTradeTracker.API;
+using System.Drawing;
 
 namespace SCTradeTracker
 {
@@ -13,8 +14,8 @@ namespace SCTradeTracker
     {
         private Hotkey hotkey;
 
-        static HotkeyArgs PrintScreenHotkey { get; } = new HotkeyArgs(ModifierKeys.Control | ModifierKeys.Alt, System.Windows.Forms.Keys.Print);
-        static Screenshot Screenshot {get;} = new Screenshot();
+        static HotkeyArgs PrintScreenHotkey { get; } = new HotkeyArgs(ModifierKeys.Alt, System.Windows.Forms.Keys.Print);
+        public static Screenshot Screenshot {get;} = new Screenshot();
 
         public override void Initialize()
         {
@@ -28,7 +29,7 @@ namespace SCTradeTracker
         {
             if(e.HotkeyArgs == PrintScreenHotkey)
             {
-                object p = SaveScreenToFile();
+                Bitmap p = Screenshot.ActiveWindow();
             }
         }
 
@@ -42,10 +43,5 @@ namespace SCTradeTracker
 
         }
 
-        private void SaveScreenToFile()
-        {
-            var img = Screenshot.ActiveWindow();
-            
-        }
     }
 }

@@ -1,3 +1,8 @@
+using System;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 namespace SCTradeTracker.API
 {
 /// <summary>
@@ -59,7 +64,7 @@ public class Screenshot
     /// <returns>Bitmap</returns>
     public Bitmap ActiveWindow()
     {
-        return CreateScreenshot((System.IntPtr)GetForegroundWindow());
+        return CreateScreenshot((IntPtr)GetForegroundWindow());
     }
 
     private Bitmap CreateScreenshot(int left, int top, int width, int height)
