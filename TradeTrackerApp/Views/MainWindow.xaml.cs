@@ -1,8 +1,10 @@
 ﻿using SCTradeTracker.API;
 using SCTradeTracker.ComputerVision;
+using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows;
+using System.Drawing.Imaging;
 
 namespace SCTradeTracker.Views
 {
@@ -16,12 +18,5 @@ namespace SCTradeTracker.Views
             InitializeComponent();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var scr = new Screenshot();
-            Bitmap p = scr.ActiveWindow();
-            var Client = new CVClient();
-            await Client.ReadBitmapAsync(p, CancellationToken.None);
-        }
     }
 }

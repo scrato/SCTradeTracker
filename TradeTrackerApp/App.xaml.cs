@@ -4,6 +4,13 @@ using Prism.Modularity;
 using System.Windows;
 using SCTradeTracker.API;
 using System.Drawing;
+using SCTradeTracker.ComputerVision;
+using SCTradeTracker.Business;
+using System.Windows.Interop;
+using NHotkey.Wpf;
+using System.Windows.Input;
+using NHotkey;
+using System;
 
 namespace SCTradeTracker
 {
@@ -12,25 +19,19 @@ namespace SCTradeTracker
     /// </summary>
     public partial class App
     {
-        private Hotkey hotkey;
-
-        static HotkeyArgs PrintScreenHotkey { get; } = new HotkeyArgs(ModifierKeys.Alt, System.Windows.Forms.Keys.Print);
-        public static Screenshot Screenshot {get;} = new Screenshot();
+        private const string c_PrintKey = "PrintKey";
+        public static CommodityAnalyzer Analyzer { get; } = new CommodityAnalyzer();
 
         public override void Initialize()
         {
             base.Initialize();
-            hotkey = new Hotkey();
-            hotkey.RegisterHotKey(PrintScreenHotkey);
-            hotkey.KeyPressed += Hotkey_KeyPressed;
+            HotkeyManager.Current.AddOrReplace(c_PrintKey, Key.I, ModifierKeys.Control | ModifierKeys.Alt, InvokePrintHotkey);
         }
 
-        private void Hotkey_KeyPressed(object sender, KeyPressedEventArgs e)
+        private async void InvokePrintHotkey(object sender, HotkeyEventArgs e)
         {
-            if(e.HotkeyArgs == PrintScreenHotkey)
-            {
-                Bitmap p = Screenshot.ActiveWindow();
-            }
+            await Analyzer.AnalyseAsync();
+            e.Handled = true;
         }
 
         protected override Window CreateShell()

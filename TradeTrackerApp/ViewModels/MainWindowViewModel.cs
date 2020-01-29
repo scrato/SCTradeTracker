@@ -4,7 +4,7 @@ namespace SCTradeTracker.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Prism Application";
+        private string _title = "Star Citizen - Trade Console Watcher";
         public string Title
         {
             get { return _title; }
